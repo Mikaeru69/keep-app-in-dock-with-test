@@ -12,7 +12,7 @@ function isAppInDock (appURL)
     if (!defaults.error)
     {
         let pattern = `"_CFURLString" = "${appURL}"`;
-        let grep = spawnSync ('grep', [ '-e', pattern ], { input: defaults.stdout, encoding: 'utf8' });
+        let grep = spawnSync ('grep', [ '-F', pattern ], { input: defaults.stdout, encoding: 'utf8' });
         if (!grep.error)
         {
             if (grep.stdout.length)
